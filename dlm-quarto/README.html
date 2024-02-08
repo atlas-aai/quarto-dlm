@@ -124,11 +124,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="use" class="level2">
 <h2 class="anchored" data-anchor-id="use">Use</h2>
-<p>Since this extension is a template for having slides that follow the DLM slides for PowerPoint, adding this extension will</p>
+<p>Since this extension is a template for having slides that follow the DLM slides for PowerPoint, add this to an existing revealjs set of slides. The example uses parameters (<code>params</code>) that can be altered under the <code>params</code> in the template to include the author’s name, GitHub, website, and sources for images included in the slides. The format needs to be included and the revealjs-plugins also need to be included so the template and the pointer will be included.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">params:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">title:</span> DLM Example Presentation</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">subtitle:</span> <span class="st">""</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author:</span> ATLAS Staff</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author_github:</span> https://github.com/jpedroza1228</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author_website:</span> <span class="st">""</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">dlm_website:</span> https://dynamiclearningmaps.org/</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">image1_source:</span> https://www.pexels.com/photo/colored-liquids-on-beakers-and-flasks-5427862/</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">image2_source:</span> https://unsplash.com/photos/colored-pencil-lined-up-on-top-of-white-surface-l3N9Q27zULw</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">image3_source:</span> https://www.pexels.com/photo/person-holding-yellow-and-pink-lego-blocks-298825/</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">image4_source:</span> https://www.pexels.com/photo/photo-of-girl-reading-book-3755707/</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">image5_source:</span> https://www.pexels.com/photo/brother-and-sister-with-books-on-their-heads-5088188/</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"</span><span class="kw">`</span><span class="ex">r</span> params<span class="va">$title</span><span class="kw">`</span><span class="st">"</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">subtitle:</span> <span class="st">"</span><span class="kw">`</span><span class="ex">r</span> params<span class="va">$subtitle</span><span class="kw">`</span><span class="st">"</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ex">author:</span> <span class="st">"</span><span class="kw">`</span><span class="ex">r</span> params<span class="va">$author</span><span class="kw">`</span><span class="st">"</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ex">date:</span> <span class="st">"</span><span class="kw">`</span><span class="ex">r</span> Sys.Date<span class="er">(</span><span class="kw">)`</span><span class="st">"</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span>  </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">dlm-quarto-revealjs:</span> default</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ex">revealjs-plugins:</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-</span> pointer</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Within the <code>_extensions</code> folder, the <code>quarto-dlm.scss</code> file can be altered in the sections below. You can change the colors, font sizes, and background color of slides that contain a table. I would recommend not changing anything else unless the html code has failed and the slides are not correctly formatted.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//If</span> you want, you can change these values to represent the colors you would like to use with your presentation</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-darkblue:</span> <span class="co">#023047;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-lightblue:</span> <span class="co">#8ecae6;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-white:</span> <span class="co">#F7F8F9;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-red:</span> <span class="co">#d7263d;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-code-red:</span> <span class="co">#a80303;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-heading-font-size:</span> 40pt<span class="kw">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-font-size:</span> 30pt<span class="kw">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-code-font-size:</span> 20pt<span class="kw">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-background-image:</span> url<span class="er">(</span><span class="st">"dlm_background.png"</span><span class="kw">);</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-font-family:</span> <span class="st">"Trebuchet MS"</span>, sans-serif<span class="kw">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-footer-font-size:</span> 10pt<span class="kw">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-body-font-color:</span> <span class="co">#000000;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-table-background-color:</span> white<span class="kw">;</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-h2-text-location:</span> center<span class="kw">;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-gt-table-font-size:</span> 16pt<span class="kw">;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="va">$theme</span><span class="ex">-plot-width:</span> 80%<span class="kw">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
 <p>Here is the source code for a minimal example: <a href="template.qmd">template.qmd</a>.</p>
+</section>
+<section id="questionserrors" class="level2">
+<h2 class="anchored" data-anchor-id="questionserrors">Questions/Errors</h2>
+<p>If there are any questions or errors that you are facing, please leave a query in the <code>Issues</code> section, or if you appear to have a fix, you can create a <code>pull request</code> and I will incorporate it in the next version of the extension.</p>
 </section>
 </section>
 
