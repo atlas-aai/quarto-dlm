@@ -1,0 +1,272 @@
+---
+params:
+  title: DLM Example Presentation
+  subtitle: ""
+  author: ATLAS Staff
+  author_github: https://github.com/jpedroza1228
+  author_website: ""
+  dlm_website: https://dynamiclearningmaps.org/
+  image1_source: https://www.pexels.com/photo/colored-liquids-on-beakers-and-flasks-5427862/
+  image2_source: https://unsplash.com/photos/colored-pencil-lined-up-on-top-of-white-surface-l3N9Q27zULw
+  image3_source: https://www.pexels.com/photo/person-holding-yellow-and-pink-lego-blocks-298825/
+  image4_source: https://www.pexels.com/photo/photo-of-girl-reading-book-3755707/
+  image5_source: https://www.pexels.com/photo/brother-and-sister-with-books-on-their-heads-5088188/
+title: "`r params$title`"
+subtitle: "`r params$subtitle`"
+author: "`r params$author`"
+date: "`r Sys.Date()`"
+format:  
+  dlm-quarto-revealjs: default
+revealjs-plugins:
+    - pointer
+
+---
+```{r packages and options}
+#| include = FALSE
+
+# library(tidyverse)
+# install.packages("")
+
+ggplot2::theme_set(ggplot2::theme_classic())
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(ratlas)
+library(gt)
+library(gtExtras)
+```
+
+```{r functions}
+#| include = FALSE
+
+function(){
+  print("Hello world.")
+}
+```
+
+```{python if using python}
+#| include = FALSE
+
+# To use the environment of packages for this quarto document please run
+# <conda env create --prefix env -f environment.yml> in your terminal
+# conda activate /Users/jonathanpedroza/Documents/r_projects/dlm_template_quarto/env
+# conda deactivate
+
+#c onda update -n base -c conda-forge conda
+# import numpy as np
+# import pandas as pd
+# import seaborn as sns
+
+```
+
+```{python python functions}
+#| include = FALSE
+
+def function_name():
+  print("Hello world.")
+
+```
+
+## Slide 1 - Gonna keep writing things in order to fill the end of the slide
+
+-   Github: [original github template](%60r%20params$github_link%60)
+
+```{r, echo = TRUE, eval = TRUE}
+2 + 2
+```
+
+::: notes
+Speaker notes go here.
+:::
+
+## Slide 2
+
+-   put everything that I want to use in the template in the following path
+
+    -   /dlm_template_quarto/dlm_presentation_template_reveal_files/ libs/revealjs/dist/theme/put here
+
+-   more text
+
+::: notes
+Speaker notes go here.
+:::
+
+## Slide 3
+
+```{r}
+#| echo: true
+#| eval: false
+#| output-location: fragment
+#| code-line-numbers: "|1|4"
+
+mtcars |> 
+  ggplot(aes(disp, mpg)) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+#| echo: false
+#| eval: true
+
+mtcars |> 
+  ggplot(aes(disp, mpg)) +
+  geom_point() +
+  geom_smooth()
+```
+
+::: notes
+Speaker notes go here.
+:::
+
+## Slide 4
+
+::: columns
+::: {.column width="40%"}
+-   I'm going to keep writing text here until it goes to the second line.
+
+-   Putting a second bullet point to see how well it works with two points per column.
+:::
+
+::: {.column width="20%"}
+:::
+
+::: {.column width="40%"}
+-   This should also go to the second line to see where to put the header here.
+
+-   Putting a second bullet point to see how well it works with two points per column.
+:::
+:::
+
+::: notes
+Speaker notes go here.
+:::
+
+## Panel Slides 1
+
+::: panel-tabset
+## Output
+
+```{r}
+#| eval: true
+#| echo: false
+
+ggplot(mtcars,
+  aes(cyl, wt)) +
+  geom_point(color = "dodgerblue",
+    position = position_jitter(width = .3)) +
+  theme_minimal()
+```
+
+## Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+ggplot(mtcars,
+  aes(cyl, wt)) +
+  geom_point(color = "dodgerblue",
+    position = position_jitter(width = .3)) +
+  theme_minimal()
+```
+:::
+
+::: notes
+Speaker notes go here.
+:::
+
+## Panel Slides 2
+
+::: panel-tabset
+## Output
+
+```{r}
+#| eval: true
+#| echo: false
+
+ggplot(mtcars,
+  aes(cyl)) +
+  geom_bar(fill = "dodgerblue") +
+  theme_minimal()
+```
+
+## Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+ggplot(mtcars,
+  aes(cyl)) +
+  geom_bar(fill = "dodgerblue") +
+  theme_minimal()
+```
+:::
+
+::: notes
+Speaker notes go here.
+:::
+
+## Incremental Slides
+
+::: incremental
+-   First item
+-   Second item
+:::
+
+::: notes
+Speaker notes go here.
+:::
+
+## Table Slide {.table-background}
+
+```{r}
+mtcars |> 
+  group_by(as.factor(cyl)) |>
+  summarize(
+    avg_mpg = mean(mpg, na.rm = TRUE),
+    avg_hp = mean(hp, na.rm = TRUE),
+    across(
+      matches("avg"),
+      ~round(.x)
+    )
+  ) |>
+  gt(
+    id = "table"
+  ) |>
+ tab_options(table.width = pct(100)) |>
+ opt_interactive(
+   use_pagination = TRUE,
+   use_search = TRUE,
+   use_resizers = TRUE,
+   use_highlight = TRUE,
+   use_compact_mode = TRUE, 
+   use_text_wrapping = TRUE,
+   use_page_size_select = TRUE
+ )
+```
+
+::: notes
+Speaker notes go here.
+:::
+
+## Image Slide
+
+![](%60r%20params$image1%60)
+
+## Contact Information
+
+-   `r params$author`
+
+    -   GitHub: [GitHub link](%60r%20params$github_link%60)
+    -   Website: [DLM Site](%60r%20params$dlm_website%60)
+
+-   Image Sources:
+
+    -   [image1_source](%60r%20params$image1_source%60)
+
+::: notes
+Speaker notes go here.
+:::

@@ -1,0 +1,229 @@
+/* TODO: CSS for plugin */
+
+/*-- scss:defaults --*/
+// DLM Theme SASS Variables
+//If you want, you can change these values to represent the colors you would like to use with your presentation
+$theme-darkblue: #023047;
+$theme-lightblue: #8ecae6;
+$theme-white: #F7F8F9;
+$theme-red: #d7263d;
+$theme-code-red: #a80303;
+$theme-heading-font-size: 40pt;
+$theme-font-size: 30pt;
+$theme-code-font-size: 20pt;
+$theme-background-image: url("dlm_background.png"); //This value needs to go in <...> files folder/libs/revealjs/dist/theme/...
+$theme-font-family: "Trebuchet MS", sans-serif;
+$theme-footer-font-size: 10pt;
+$theme-body-font-color: #000000;
+$theme-table-background-color: white; //using this only for emphasis. PLEASE change.
+$theme-h2-text-location: center;
+$theme-gt-table-font-size: 16pt;
+$theme-plot-width: 80%;
+
+
+$body-bg: $theme-white;
+$presentation-heading-color: $theme-darkblue;
+$body-color: $theme-body-font-color;
+$link-color: $theme-red;
+
+$code-block-border-color: $theme-lightblue;
+$code-block-bg: lighten($code-block-border-color, 25%);
+
+$presentation-heading-font: $theme-font-family;
+$font-family: $theme-font-family;
+
+$presentation-h2-font-size: $theme-heading-font-size;
+$font-size: $theme-font-size;
+$code-block-font-size: $theme-code-font-size;
+
+/*-- scss:rules --*/
+
+
+// EVERYTHING ABOVE IS WORKING
+
+
+// Shift the title, subtitle, and author name to the right
+section#title-slide.quarto-title-block.center.present {
+  margin-left: 25px;
+  margin-right: -200px;
+}
+
+
+// This moves slides with multiple columns to the right so it does not overlap with the slide background
+.reveal li {
+  font-size: $theme-font-size;
+  font-family: $theme-font-family;
+  margin-left: 25px;
+  margin-right: -200px;
+}
+
+
+// This should be responsible for words going to the next line instead of continuing on the same line
+.reveal div.slides {
+  overflow-wrap: break-word;
+}
+
+
+// This make the blue line extend to where the rest of the code is but also makes the code boxes longer (needs to be fixed)
+.reveal div.panel-tabset {
+  margin-left: 25px;
+  margin-right: -200px;
+}
+
+
+// This exists solely so tabset code and output will be centered and not spill over the side of the slide
+// Probably should not mess with the css right below this message
+.reveal div.tab-content div.cell {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+// Color of code output (This is a darker red)
+.reveal pre code {
+  color: $theme-code-red;
+}
+
+
+// This makes the code boxes larger to the right to not overlap with the slide background
+.reveal div.cell{
+  margin-left: 25px;
+  margin-right: -200px;
+}
+
+
+// Panel Tabs - This makes it so that tabs will not overlap
+.panel-tabset [role=tablist] li {
+    display: contents;
+}
+
+
+// header for every slide other than title slide
+.reveal h2 {
+  text-align: $theme-h2-text-location;
+  margin-left: 25px;
+  margin-right: -200px;
+}
+
+
+// author name
+.reveal .quarto-title-author-name {
+  font-family: $theme-font-family;
+}
+
+
+// For images, including ggplot2 visuals that are created in tabsets NOTE: different from the general images/visuals below
+.reveal div.tab-content div.cell img {
+  float: none;
+  margin-left: 25px;
+  margin-right: -200px;
+}
+
+
+// Images, including ggplot2 visuals
+.reveal .slides img {
+  display: block;
+  float: right;
+  //margin-left: auto;
+  //margin-right: auto;
+  width: $theme-plot-width;
+}
+
+
+// text
+.reveal p {
+  font-size: $theme-font-size;
+  font-family: $theme-font-family;
+  //margin-left: 25px;
+  //margin-right: -200px;
+}
+
+
+// logo
+.reveal .slide-logo {
+  position: absolute !important;
+  height: 60px !important;
+  width: 160px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+  z-index: 1;
+}
+
+
+//Footer text
+.reveal .footer > p {
+  position: static;
+  //can use position: relative w/ bottom: 0; left: 0;
+  text-align: center;
+  display: inline-box;
+  min-height: 0; 
+  margin-top: 0;
+  margin-bottom: 0;
+  color: $theme-darkblue;
+  font-size: $theme-footer-font-size; 
+
+  //margin-left: 25px;
+  //margin-right: -200px;
+}
+
+
+//background (whole slide)
+.reveal .slide-background-content {
+  background-image: $theme-background-image;
+  position: static;
+  width: 100%;
+  width: 100%;
+  background-position: 50% 50%;
+}
+
+
+// GT Table
+.Reactable {
+  font-family: $theme-font-family !important;
+  color: $theme-body-font-color !important;
+  background-color: $theme-table-background-color !important;
+  height: auto;
+  width: 100%;
+  overflow-x: hidden;
+  position: absolute !important;
+}
+
+.reveal .rt-page-info {
+  font-size: $theme-gt-table-font-size;
+}
+
+.reveal .rt-page-size {
+  font-size: $theme-gt-table-font-size;
+}
+
+.reveal .rt-page-button {
+  font-size: $theme-gt-table-font-size;
+}
+
+.rt-text-content {
+  font-size: $theme-gt-table-font-size;
+}
+
+.rt-search{
+  font-size: $theme-gt-table-font-size !important;
+  font-family: $theme-font-family !important;
+}
+
+
+//table background and gt table editing
+.table-background,
+.table-background .slide-background-content {
+  background-color: $theme-table-background-color;
+  background-image: none;
+  position: static;
+  width: 100%;
+  width: 100%;
+  background-position: 50% 50%;
+}
+
+
+.table-background,
+.reveal .table-background h2 {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}

@@ -1,0 +1,21 @@
+title: Dlm-quarto
+author: Jonathan Andrew Pedroza
+version: 1.0.0
+quarto-required: ">=1.2.0"
+contributes:
+  formats:
+    revealjs:
+      theme: quarto-dlm.scss
+      slide-number: false
+      preview-links: auto
+      date-format: long
+      #width: 1600 # 1920
+      #height: 900 # 1080 
+      logo: DLM.png
+      footer: "© 2023 Accessible Teaching, Learning, and Assessment Systems (ATLAS)"
+      format-resources: ["DLM.png", "dlm_background.png"]
+      pointer:
+        key: q
+        color: green
+        pointerSize: 24
+        alwaysVisible: false
