@@ -7,7 +7,7 @@ Before adding the following extension, you will need to download Quarto. To use 
 ## Installation
 
 ```bash
-quarto add atlas-aai/dlm-quarto
+quarto add atlas-aai/quarto-dlm/dlm-quarto
 ```
 
 The code above can be added to your terminal to install the extension. This will install the extension under the `_extensions` subdirectory. If you're using version control (e.g., *Git*), you will want to check in this directory.
@@ -19,7 +19,7 @@ quarto add quarto-ext/pointer
 In addition to using the `DLM-Quarto` extension, I would highly recommend running the code above as well to add the pointer quarto extension. You can read more about the extension [here](https://github.com/quarto-ext/pointer/tree/main) with a sample presentation [here](https://quarto-ext.github.io/pointer/#/title-slide). Once you add this extension there is nothing else that is needed with this extension. If you want to change the pointer options listed on that GitHub page, you can go into the `_extensions` folder to the `_extension.yml` file. There, you can change the *key*, pointer *color*, *pointerSize*, and whether you want the pointer to be *alwaysVisible*. 
 
 ```bash
-quarto add atlas-aai/dlm-quarto
+quarto add atlas-aai/quarto-dlm/dlm-quarto
 quarto add quarto-ext/pointer
 ```
 
